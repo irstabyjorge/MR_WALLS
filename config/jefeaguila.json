@@ -1,0 +1,72 @@
+{
+  "name": "JEFEAGUILA",
+  "version": "0.1.0",
+  "mode": "local_defensive_evidence_first",
+  "aliases_merged": [
+    "AEGIS",
+    "MR_WALLS",
+    "HOMODEUS_CORE",
+    "DESKTOP_COMMANDER",
+    "EVIDENCE_TRACE_CORE"
+  ],
+  "modules": {
+    "local_ai_chat": {
+      "enabled": true,
+      "backend": "ollama"
+    },
+    "authorized_desktop_commander": {
+      "enabled": true,
+      "confirmation_required_for_writes": true
+    },
+    "evidence_vault": {
+      "enabled": true,
+      "hash": "SHA-256",
+      "preserve_originals": true
+    },
+    "multidimensional_analysis": {
+      "enabled": true,
+      "dimensions": [
+        "temporal",
+        "personal",
+        "institutional",
+        "documental",
+        "technical",
+        "medical_scientific",
+        "legal",
+        "financial",
+        "geographic",
+        "evidentiary"
+      ]
+    },
+    "defensive_audit": {
+      "enabled": true,
+      "offensive_actions": false
+    },
+    "reporting": {
+      "enabled": true,
+      "labels": [
+        "FACT",
+        "TECHNICAL_DATA",
+        "USER_STATEMENT",
+        "INFERENCE",
+        "HYPOTHESIS",
+        "CONTRADICTED",
+        "UNVERIFIED"
+      ]
+    }
+  },
+  "authorization": {
+    "allowed": [
+      "owner_controlled",
+      "public",
+      "legally_delivered",
+      "expressly_authorized"
+    ],
+    "denied": [
+      "unauthorized_remote_access",
+      "evidence_destruction",
+      "retaliation",
+      "claim_fabrication"
+    ]
+  }
+}
