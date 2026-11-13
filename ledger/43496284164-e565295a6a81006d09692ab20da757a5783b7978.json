@@ -1,0 +1,275 @@
+{
+  "commit": "e565295a6a81006d09692ab20da757a5783b7978",
+  "commits": [
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-11-13T11:00:51-08:00",
+      "sha": "e565295a6a81006d09692ab20da757a5783b7978",
+      "subject": "Install AEGIS GitHub IP SHIELD provenance workflow (#4)"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T23:35:30-07:00",
+      "sha": "e357e6f5e466ecc01c55fb661077a67daa6e2e75",
+      "subject": "Merge pull request #2 from irstabyjorge/agent/jefeaguila-communication"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T23:34:09-07:00",
+      "sha": "dbc91297ffddd108fe10f1a4e18bbf663e44f445",
+      "subject": "Document communication setup"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T23:34:08-07:00",
+      "sha": "8d3572361505333600f589d46784e49db47bead1",
+      "subject": "Add interactive comprehending chat"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T23:34:07-07:00",
+      "sha": "2a111d50bee6b64521df5015272c9e49bee5c468",
+      "subject": "Add communication preferences"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T23:34:05-07:00",
+      "sha": "729fe11a0845df70ba725ad14680b81783e3b087",
+      "subject": "Add JEFEAGUILA communication charter"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T23:22:11-07:00",
+      "sha": "f53073d13052cbf7ce5df4433ff00876d096d54b",
+      "subject": "Document Ollama SDK integration"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T23:22:10-07:00",
+      "sha": "b4bcd887917f5faa9f04087d89d3217d20e30492",
+      "subject": "Add JavaScript Ollama chat example"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T23:22:09-07:00",
+      "sha": "74d46d1a57942d364d7180381ab2b50ce315f1ff",
+      "subject": "Add Python Ollama chat example"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T23:22:08-07:00",
+      "sha": "23bfb48835e2787e20a2517dd49b5f8f8b7b4360",
+      "subject": "Add official Ollama JavaScript dependency"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T23:22:07-07:00",
+      "sha": "fd5149ea67035e313a9b8ce1520d15f3589b49ff",
+      "subject": "Add official Ollama Python dependency"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T22:29:37-07:00",
+      "sha": "16f03595cdbda3bfa9d895d4458a076ae30f752e",
+      "subject": "Add proprietary all-rights-reserved license"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T22:29:36-07:00",
+      "sha": "c41ee80052743f4fafd46bdc8255c9ec55190079",
+      "subject": "Declare JEFEAGUILA ownership"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T22:28:17-07:00",
+      "sha": "a5995d7264b59378c404fcc674fe88192df4661f",
+      "subject": "Merge pull request #1 from irstabyjorge/agent/jefeaguila-core"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T22:27:23-07:00",
+      "sha": "d4c597f2a5877e24435260000c24a165c66717ae",
+      "subject": "Add safe Ubuntu installer"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T22:27:22-07:00",
+      "sha": "c00de5d2a9756ea030fc42f1d3a09a0fc08768c6",
+      "subject": "Add safe Windows installer"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T22:27:21-07:00",
+      "sha": "23e03cedbaffe3e03a980b4adb0b04aa4b572a91",
+      "subject": "Add unified module configuration"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T22:27:20-07:00",
+      "sha": "d849f885d57d90a19c226cde4d4ee047bf614e9f",
+      "subject": "Add evidence-first doctrine"
+    },
+    {
+      "author_email_sha256": "2ec9846aa81c35983fbe8f05ca33e064fdac37cd1a375bb7a60646bcb0575826",
+      "author_name_declared": "JORGE FRANCISCO PAREDES",
+      "authored_at_declared": "2026-07-27T22:27:19-07:00",
+      "sha": "6da08eb61632f6a37384f6e00aad964e3cdeb9e1",
+      "subject": "Define unified JEFEAGUILA platform"
+    },
+    {
+      "author_email_sha256": "91719714052f6a4115d703e6daf013bf05ecdbea98bc9f3e48c30611f1be34a4",
+      "author_name_declared": "irstaxbyjorge",
+      "authored_at_declared": "2025-08-04T01:10:16-07:00",
+      "sha": "efdc87026f25d99c1ca21139f14494b8aeb03134",
+      "subject": "Initial commit"
+    }
+  ],
+  "file_count_recorded": 18,
+  "file_inventory_truncated_at_25000": false,
+  "files": [
+    {
+      "git_blob_oid": "496523ebf8a2f8179732701a82e626efb6977e8c",
+      "mode": "100644",
+      "path": ".github/workflows/aegis-ip-shield.yml",
+      "sha256": "6b128bd094d276f1cbe06adb086ac00a7489b6131663092ec8ffe077d54ac56b"
+    },
+    {
+      "git_blob_oid": "10af0fb8ecce867d162a0adf7a25fdf16404d334",
+      "mode": "100644",
+      "path": "LICENSE",
+      "sha256": "12a3ac05f1710b4fa3cbeff1af37508f9e067de0e1a1fe2f64d73b557814fbb2"
+    },
+    {
+      "git_blob_oid": "e19b5ec008bb1755222a48a1772535d5bb580527",
+      "mode": "100644",
+      "path": "NOTICE",
+      "sha256": "d01093597a1917131ce0caff9ba04a0489170843afe961c53853578968a19fb8"
+    },
+    {
+      "git_blob_oid": "732981df331b80903ad1117df86c11c29efd70f1",
+      "mode": "100644",
+      "path": "README.md",
+      "sha256": "ecbf17f3b41127227a77cec7e006f9844c6eafc4a87bdbd8bf9fc14ac12371c6"
+    },
+    {
+      "git_blob_oid": "45d0abbd2e4baa4f720203254c11bbea64c02b7f",
+      "mode": "100644",
+      "path": "config/communication.json",
+      "sha256": "25bc4c1672fb2154c8ac8e4804bf835c9f4109c73ce8320eb529427e1f049547"
+    },
+    {
+      "git_blob_oid": "af53ade3c71b5aff3c30aea2166b2845b7a4d9b8",
+      "mode": "100644",
+      "path": "config/jefeaguila.json",
+      "sha256": "d4c665354be8a24c8e55f170d44355c42ac8b827aa00372b42ca3ecb1a1ac3a1"
+    },
+    {
+      "git_blob_oid": "5791fc415e564458c1ad9325c8240157a3ca5c5d",
+      "mode": "100644",
+      "path": "docs/COMMUNICATION.md",
+      "sha256": "18d93d3f954af264bb70cc1798a232d01daa915414b33b5a0a3e17304868d4d0"
+    },
+    {
+      "git_blob_oid": "30784256f9ce6bb04d7807c4cb7896a40b88600d",
+      "mode": "100644",
+      "path": "docs/EVIDENCE_DOCTRINE.md",
+      "sha256": "7305d59f8db4c32c6dd28c8ee3eb546cc07451bbeed0c5220b53be2f8739a5d9"
+    },
+    {
+      "git_blob_oid": "142fe07594bcb1e2a659982f48504ecc156ab0b7",
+      "mode": "100644",
+      "path": "docs/IP_SHIELD_GITHUB.md",
+      "sha256": "1b3d5f528dcc66959b29f71af8f93e991fa31e4f6aa5f92bab5525f745adb4c0"
+    },
+    {
+      "git_blob_oid": "241208ad6c0ef3ce24589195136d97050e639af4",
+      "mode": "100644",
+      "path": "docs/OLLAMA_INTEGRATION.md",
+      "sha256": "c75d4e94954c7a1b1a5c8f03fbbc5eedb371921659487dc7ad024b3d8ec1df66"
+    },
+    {
+      "git_blob_oid": "15cc295f92cb7093589436e84eadea6af92fa0e9",
+      "mode": "100644",
+      "path": "examples/interactive_chat.py",
+      "sha256": "4865fb7bf24a8d30ccf24fed02e5a5b49a6e4210d3f6dcab32ad411b153aa60b"
+    },
+    {
+      "git_blob_oid": "60325fc3a0dad2ba5762f2d5e284ac2bf114cbbc",
+      "mode": "100644",
+      "path": "examples/ollama_chat.mjs",
+      "sha256": "15dd25ed3900cab181b6f7f98fef23803e41aaef3b125ac0f29e20a5f072f51d"
+    },
+    {
+      "git_blob_oid": "10dc277e485b907f1806c1dbdc4fe0494fd021d8",
+      "mode": "100644",
+      "path": "examples/ollama_chat.py",
+      "sha256": "08bde93f5f3b408b8e8179f26e3afa453806661b2d6b67b7bebdde354a96471c"
+    },
+    {
+      "git_blob_oid": "42720b927fae8bcfb0d75be7b81e035f5cf3ddb5",
+      "mode": "100644",
+      "path": "package.json",
+      "sha256": "02f7e38bb2aa090a9b7911bb6bac567190559833f13ecf3f91c7db6fe9b10016"
+    },
+    {
+      "git_blob_oid": "4660e0673d875f44598dd6212bcd4a9803eb43c2",
+      "mode": "100644",
+      "path": "prompts/JEFEAGUILA_SYSTEM.md",
+      "sha256": "0416ab9971541b0c2226f25d3ba25ca1755a2dc5351428d4970c32c9897c60f9"
+    },
+    {
+      "git_blob_oid": "403abba66c4764cc4f7caf7e78449380ee1be532",
+      "mode": "100644",
+      "path": "requirements.txt",
+      "sha256": "a4b859f8eb27f710cd1e21be7cd3d3505cef087b2ed33583b33fa02cc394c1bb"
+    },
+    {
+      "git_blob_oid": "eff8dd6b5b9e7e9b3f337573c9e7e929cc48ec03",
+      "mode": "100644",
+      "path": "scripts/install_ubuntu.sh",
+      "sha256": "d89d35e989fe939b83815f93bc98e9ac37a3de8e3580de982ca525b66921fa54"
+    },
+    {
+      "git_blob_oid": "523fe7df6408975d0c69ec99457e933f95d3e5b2",
+      "mode": "100644",
+      "path": "scripts/install_windows.ps1",
+      "sha256": "ba8effb7624c6d61c64a9b8bcd0fb9ca059ce5fc4bc5bc7dbb6250d480ffbd80"
+    }
+  ],
+  "generated_at_utc_runner_clock": "2026-11-13T19:58:45.006045+00:00",
+  "limits": [
+    "Git author and timestamp fields are declared metadata, not verified identity or trusted time.",
+    "Hashes identify recorded bytes; they do not prove authorship, originality, ownership or infringement.",
+    "The report contains paths and hashes, not source-file contents.",
+    "The runner clock is not a trusted timestamp authority.",
+    "Third-party and joint contributions retain applicable rights and licenses.",
+    "The ledger branch is versioned evidence, not immutable storage.",
+    "Only this repository and triggered refs are covered."
+  ],
+  "manifest_type": "AEGIS_GITHUB_IP_SHIELD_PROVENANCE",
+  "manifest_version": "1.0",
+  "ref": "refs/heads/pets-aegis-ipshield-coverage-20261113",
+  "ref_name": "pets-aegis-ipshield-coverage-20261113",
+  "repository": "irstabyjorge/MR_WALLS",
+  "tree": "a9f655a18b556aa3d9f9cf8792d184ca26b71584",
+  "workflow_run_attempt": "1",
+  "workflow_run_id": "43496284164"
+}
