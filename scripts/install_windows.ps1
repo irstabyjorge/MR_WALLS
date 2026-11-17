@@ -19,8 +19,11 @@ foreach ($Dir in $Dirs) {
 
 $ConfigPath = Join-Path $Root 'config\installation.json'
 if (Test-Path -LiteralPath $ConfigPath) {
-    $BackupPath = "$ConfigPath.before_$(Get-Date -Format 'yyyyMMdd_HHmmss').backup"
-    Copy-Item -LiteralPath $ConfigPath -Destination $BackupPath
+    $BackupPath = "$ConfigPath.before_$(Get-Date -Format 'yyyyMMdd_HHmmss_fffffff').backup"
+    Copy-Item -LiteralPath $ConfigPath -Destination $BackupPath -NoClobber
+    if (-not (Test-Path -LiteralPath $BackupPath)) {
+        throw "Could not create a unique configuration backup; existing configuration was not replaced."
+    }
     Write-Host "Previous configuration preserved: $BackupPath" -ForegroundColor Yellow
 }
 
