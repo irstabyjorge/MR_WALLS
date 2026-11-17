@@ -13,8 +13,12 @@ mkdir -p "$root"/{config,docs,evidence/01_ORIGINALS_READ_ONLY,evidence/02_WORKIN
 config_path="$root/config/installation.json"
 
 if [[ -f "$config_path" ]]; then
-  backup_path="$config_path.before_$(date -u +%Y%m%d_%H%M%S).backup"
-  cp -- "$config_path" "$backup_path"
+  backup_path="$config_path.before_$(date -u +%Y%m%d_%H%M%S_%N).backup"
+  cp --no-clobber -- "$config_path" "$backup_path"
+  [[ -f "$backup_path" ]] || {
+    printf 'ERROR: could not create a unique configuration backup.\n' >&2
+    exit 1
+  }
   printf 'Previous configuration preserved: %s\n' "$backup_path"
 fi
 
