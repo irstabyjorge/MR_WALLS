@@ -1,5 +1,7 @@
 import json
 import os
+import shutil
+from datetime import datetime, timezone
 from pathlib import Path
 
 from ollama import Client
@@ -30,12 +32,37 @@ def load_recent(limit: int) -> list[dict[str, str]]:
     return rows[-limit:]
 
 
+def rotate_history() -> Path | None:
+    if not HISTORY_PATH.exists() or HISTORY_PATH.stat().st_size < MAX_HISTORY_BYTES:
+        return None
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")
+    for index in range(1000):
+        backup = HISTORY_PATH.with_name(f"{HISTORY_PATH.stem}.{stamp}.{index}.previous")
+        try:
+            descriptor = os.open(backup, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        except FileExistsError:
+            continue
+        try:
+            with os.fdopen(descriptor, "wb") as destination, HISTORY_PATH.open("rb") as source:
+                shutil.copyfileobj(source, destination, length=1024 * 1024)
+            if backup.stat().st_size != HISTORY_PATH.stat().st_size:
+                raise OSError("history archive size verification failed")
+            HISTORY_PATH.unlink()
+            return backup
+        except Exception:
+            try:
+                backup.unlink()
+            except OSError:
+                pass
+            raise
+    raise FileExistsError("unable to allocate a unique history archive name")
+
+
 def remember(role: str, content: str) -> None:
     if not MEMORY_ENABLED:
         return
     DATA_PATH.mkdir(parents=True, exist_ok=True)
-    if HISTORY_PATH.exists() and HISTORY_PATH.stat().st_size >= MAX_HISTORY_BYTES:
-        HISTORY_PATH.replace(HISTORY_PATH.with_suffix(".jsonl.previous"))
+    rotate_history()
     with HISTORY_PATH.open("a", encoding="utf-8") as stream:
         stream.write(json.dumps({"role": role, "content": content}, ensure_ascii=False) + "\n")
 
