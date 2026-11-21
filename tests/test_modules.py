@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from jefeaguila.modules.dossier_engine import DossierEngine
+from jefeaguila.modules.dossier_engine import DossierEngine, verify_dossier
 from jefeaguila.modules.evidence_vault import fingerprint_file, verify_fingerprint
 from jefeaguila.registry import get_runtime_components, load_configuration, module_status
 
@@ -41,6 +41,12 @@ class DossierEngineTests(unittest.TestCase):
         self.assertEqual(len(dossier["integrity"]["digest"]), 128)
         self.assertEqual(dossier["classification"], "USER_STATEMENT")
         self.assertEqual(dossier["provenance"][0]["actor"], "local-user")
+        self.assertTrue(verify_dossier(dossier))
+
+    def test_changes_to_dossier_metadata_are_detected(self):
+        dossier = DossierEngine().create("sample", {"note": "source"}, "tester")
+        dossier["provenance"][0]["action"] = "modified after creation"
+        self.assertFalse(verify_dossier(dossier))
 
     def test_invalid_classification_rejected(self):
         with self.assertRaises(ValueError):
@@ -60,11 +66,13 @@ class RegistryTests(unittest.TestCase):
     def test_registry_connects_implemented_modules(self):
         config = load_configuration()
         statuses = {item["name"]: item["state"] for item in module_status(config)}
+        self.assertEqual(statuses["local_ai_chat"], "implemented")
         self.assertEqual(statuses["evidence_vault"], "implemented")
         self.assertEqual(statuses["reporting"], "implemented")
         components = get_runtime_components()
         self.assertIn("fingerprint_file", components["evidence_vault"])
         self.assertIsInstance(components["reporting"]["dossier_engine"], DossierEngine)
+        self.assertEqual(components["local_ai_chat"]["entrypoint"], "python -m examples.interactive_chat")
 
 
 if __name__ == "__main__":
