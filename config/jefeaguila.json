@@ -1,6 +1,6 @@
 {
   "name": "JEFEAGUILA",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "mode": "local_defensive_evidence_first",
   "aliases_merged": [
     "AEGIS",
@@ -44,8 +44,11 @@
     },
     "reporting": {
       "enabled": true,
-      "labels": [
-        "FACT",
+      "engine": "jefeaguila.modules.dossier_engine",
+      "formats": ["JSON", "CSV"],
+      "integrity_hash": "SHA-512",
+      "classifications": [
+        "CONFIRMED_FACT",
         "TECHNICAL_DATA",
         "USER_STATEMENT",
         "INFERENCE",
