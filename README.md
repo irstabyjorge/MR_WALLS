@@ -1,26 +1,62 @@
 # JEFEAGUILA
 
-JEFEAGUILA unifica las herramientas anteriormente descritas como AEGIS, MR_WALLS, HOMO_DEUS, Desktop Commander y Evidence Trace en una sola plataforma local.
+JEFEAGUILA unifies the tools previously described as AEGIS, MR_WALLS, HOMO_DEUS, Desktop Commander, and Evidence Trace into a local-first platform.
 
-## Capacidades reales
+## Current capabilities
 
-- Chat local mediante Ollama.
-- Comandos de archivos autorizados y con confirmación.
-- Bóveda de evidencia con originales separados de copias de trabajo.
-- SHA-256, manifiestos, verificación de integridad e inventarios.
-- Análisis multidimensional: temporal, personal, institucional, documental, técnica, médica, jurídica, financiera, geográfica y probatoria.
-- Auditoría defensiva para Windows y Ubuntu.
-- Herramientas de desarrollo para PowerShell, Bash, ripgrep y ShellCheck.
+- Local chat through Ollama.
+- Authorized desktop operations with confirmation before writes.
+- Read-only evidence fingerprinting with SHA-256.
+- Evidence manifests and integrity verification.
+- Provenance-aware dossiers with SHA-512 integrity digests.
+- JSON and CSV dossier exports.
+- Multidimensional analysis configuration: temporal, personal, institutional, documentary, technical, medical/scientific, legal, financial, geographic, and evidentiary.
+- Defensive audit configuration for Windows and Ubuntu.
 
-## Regla central
+## Quick start
 
-JEFEAGUILA nunca presenta una inferencia como hecho. Un hash demuestra integridad, no veracidad; un puerto abierto no demuestra intrusión; una IP no identifica por sí sola a una persona; una similitud tecnológica no demuestra apropiación.
+Install Python dependencies:
 
-## Estructura
+```bash
+python -m pip install -r requirements.txt
+```
 
-- `config/jefeaguila.json`: identidad y módulos.
-- `docs/EVIDENCE_DOCTRINE.md`: reglas probatorias y de autorización.
-- `scripts/install_windows.ps1`: instalación local para Windows.
-- `scripts/install_ubuntu.sh`: instalación local para Ubuntu.
+Inspect the module registry:
 
-Todo acceso debe estar limitado a equipos, cuentas, archivos, exportaciones y fuentes públicas o expresamente autorizadas por su titular.
+```bash
+python -m jefeaguila.cli status
+```
+
+Fingerprint files without modifying them:
+
+```bash
+python -m jefeaguila.cli fingerprint ./evidence/example.pdf --output ./reports/manifest.json
+```
+
+Create a source-attributed dossier:
+
+```bash
+python -m jefeaguila.cli dossier --target REF-001 --actor local-user --classification USER_STATEMENT --data-json '{"note":"description supplied by the source"}' --output ./reports/dossier.json
+```
+
+Run validation:
+
+```bash
+python -m unittest discover -s tests -v
+npm run check
+bash -n scripts/install_ubuntu.sh
+```
+
+## Evidence doctrine
+
+JEFEAGUILA never presents an inference as a fact. A hash demonstrates byte integrity, not truth, authorship, or ownership. An open port does not prove intrusion; an IP address does not by itself identify a person; and technological similarity does not establish appropriation.
+
+Original evidence must remain unchanged. Fingerprinting reads files in place. Reports and manifests should be stored separately from original evidence.
+
+## Module state
+
+The runtime registry distinguishes implemented modules from modules that are only configured. An enabled configuration entry is not proof that a corresponding operational implementation exists.
+
+## Authorization and privacy
+
+All operations are limited to owner-controlled, public, legally delivered, or expressly authorized sources. No unauthorized remote access or offensive actions are implemented. Do not place passwords, API keys, OAuth tokens, CURP, RFC, or full government identifiers in source code, prompts, logs, or Git history.
