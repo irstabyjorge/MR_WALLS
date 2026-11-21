@@ -35,6 +35,24 @@ def _canonical_bytes(value: Mapping[str, Any]) -> bytes:
     ).encode("utf-8")
 
 
+def verify_dossier(dossier: Mapping[str, Any]) -> bool:
+    """Verify SHA-512 over every dossier field except the digest envelope itself."""
+    integrity = dossier.get("integrity")
+    if not isinstance(integrity, Mapping) or integrity.get("algorithm") != "SHA-512":
+        return False
+    expected = integrity.get("digest")
+    if not isinstance(expected, str) or len(expected) != 128:
+        return False
+    try:
+        int(expected, 16)
+        payload = dict(dossier)
+        payload.pop("integrity", None)
+        actual = hashlib.sha512(_canonical_bytes(payload)).hexdigest()
+    except (TypeError, ValueError):
+        return False
+    return actual == expected.lower()
+
+
 class DossierEngine:
     """Build SHA-512 integrity records for user-supplied evidence data."""
 
@@ -56,21 +74,17 @@ class DossierEngine:
         if not isinstance(data, Mapping):
             raise TypeError("data must be a mapping")
 
+        created_at = _now_utc()
         payload: dict[str, Any] = {
             "schema_version": 1,
             "dossier_for": target.strip(),
-            "created_at_utc": _now_utc(),
+            "created_at_utc": created_at,
             "created_by": actor.strip(),
             "classification": classification,
             "source_reference": source_reference,
             "data": dict(data),
-        }
-        digest = hashlib.sha512(_canonical_bytes(payload)).hexdigest()
-        return {
-            **payload,
-            "integrity": {"algorithm": "SHA-512", "digest": digest},
             "interpretation_limit": (
-                "The digest detects changes to this serialized dossier payload. "
+                "The digest detects changes to all serialized dossier metadata and data. "
                 "It does not prove the truth, authorship, ownership, or legal status "
                 "of the supplied information."
             ),
@@ -78,9 +92,14 @@ class DossierEngine:
                 {
                     "actor": actor.strip(),
                     "action": "Dossier generated from supplied data",
-                    "recorded_at_utc": payload["created_at_utc"],
+                    "recorded_at_utc": created_at,
                 }
             ],
+        }
+        digest = hashlib.sha512(_canonical_bytes(payload)).hexdigest()
+        return {
+            **payload,
+            "integrity": {"algorithm": "SHA-512", "digest": digest},
         }
 
     @staticmethod
