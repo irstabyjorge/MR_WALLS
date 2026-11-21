@@ -5,18 +5,22 @@ import json
 from pathlib import Path
 from typing import Any
 
-from jefeaguila.modules.dossier_engine import DossierEngine
+from jefeaguila.modules.dossier_engine import DossierEngine, verify_dossier
 from jefeaguila.modules.evidence_vault import create_manifest, fingerprint_file, verify_fingerprint
 
 
 IMPLEMENTATIONS = {
+    "local_ai_chat": {
+        "implementation": "examples.interactive_chat",
+        "exports": ["main"],
+    },
     "evidence_vault": {
         "implementation": "jefeaguila.modules.evidence_vault",
         "exports": ["create_manifest", "fingerprint_file", "verify_fingerprint"],
     },
     "reporting": {
         "implementation": "jefeaguila.modules.dossier_engine",
-        "exports": ["DossierEngine"],
+        "exports": ["DossierEngine", "verify_dossier"],
     },
 }
 
@@ -53,10 +57,14 @@ def module_status(config: dict[str, Any]) -> list[dict[str, Any]]:
 def get_runtime_components() -> dict[str, Any]:
     """Return concrete module entry points; no background tasks are started."""
     return {
+        "local_ai_chat": {"entrypoint": "python -m examples.interactive_chat"},
         "evidence_vault": {
             "fingerprint_file": fingerprint_file,
             "create_manifest": create_manifest,
             "verify_fingerprint": verify_fingerprint,
         },
-        "reporting": {"dossier_engine": DossierEngine()},
+        "reporting": {
+            "dossier_engine": DossierEngine(),
+            "verify_dossier": verify_dossier,
+        },
     }
