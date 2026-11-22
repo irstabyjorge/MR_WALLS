@@ -25,19 +25,30 @@ IMPLEMENTATIONS = {
 }
 
 
+def _validate_configuration(config: dict[str, Any]) -> None:
+    modules = config.get("modules")
+    if not isinstance(modules, dict):
+        raise ValueError("Configuration must contain a modules object.")
+    for name, settings in modules.items():
+        if not isinstance(settings, dict):
+            raise ValueError(f"Module configuration for {name!r} must be an object.")
+        if "enabled" in settings and not isinstance(settings["enabled"], bool):
+            raise ValueError(f"Module {name!r} enabled value must be a boolean.")
+
+
 def load_configuration(path: str | Path | None = None) -> dict[str, Any]:
     config_path = Path(path) if path else Path(__file__).resolve().parents[1] / "config" / "jefeaguila.json"
     config = json.loads(config_path.read_text(encoding="utf-8"))
-    if not isinstance(config.get("modules"), dict):
-        raise ValueError("Configuration must contain a modules object.")
+    _validate_configuration(config)
     return config
 
 
 def module_status(config: dict[str, Any]) -> list[dict[str, Any]]:
     """Report whether each configured module is implemented, configured-only, or disabled."""
+    _validate_configuration(config)
     rows: list[dict[str, Any]] = []
     for name, settings in config["modules"].items():
-        enabled = bool(settings.get("enabled", False)) if isinstance(settings, dict) else False
+        enabled = settings.get("enabled", False)
         implementation = IMPLEMENTATIONS.get(name)
         if not enabled:
             state = "disabled"
@@ -54,9 +65,16 @@ def module_status(config: dict[str, Any]) -> list[dict[str, Any]]:
     return rows
 
 
-def get_runtime_components() -> dict[str, Any]:
-    """Return concrete module entry points; no background tasks are started."""
-    return {
+def get_runtime_components(config: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Return entry points only for modules enabled in validated configuration."""
+    if config is None:
+        config = load_configuration()
+    _validate_configuration(config)
+    enabled = {
+        name for name, settings in config["modules"].items()
+        if settings.get("enabled", False)
+    }
+    available = {
         "local_ai_chat": {"entrypoint": "python -m examples.interactive_chat"},
         "evidence_vault": {
             "fingerprint_file": fingerprint_file,
@@ -68,3 +86,4 @@ def get_runtime_components() -> dict[str, Any]:
             "verify_dossier": verify_dossier,
         },
     }
+    return {name: component for name, component in available.items() if name in enabled}
