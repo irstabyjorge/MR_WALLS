@@ -36,7 +36,7 @@ python -m jefeaguila.cli fingerprint ./evidence/example.pdf --output ./reports/m
 Create a source-attributed dossier:
 
 ```bash
-python -m jefeaguila.cli dossier --target REF-001 --actor local-user --classification USER_STATEMENT --data-json '{"note":"description supplied by the source"}' --output ./reports/dossier.json
+printf '%s' '{"note":"description supplied by the source"}' | python -m jefeaguila.cli dossier --target REF-001 --actor local-user --classification USER_STATEMENT --data-stdin --output ./reports/dossier.json
 ```
 
 Run validation:
@@ -51,7 +51,7 @@ bash -n scripts/install_ubuntu.sh
 
 JEFEAGUILA never presents an inference as a fact. A hash demonstrates byte integrity, not truth, authorship, or ownership. An open port does not prove intrusion; an IP address does not by itself identify a person; and technological similarity does not establish appropriation.
 
-Original evidence must remain unchanged. Fingerprinting reads files in place. Reports and manifests should be stored separately from original evidence.
+Original evidence must remain unchanged. Fingerprinting opens a stable file descriptor without following symlinks, preserves access-time metadata where supported, and refuses a manifest destination that resolves to an input file. Reports and manifests should be stored separately from original evidence. Temporary exports use unique, exclusively created files and atomic replacement.
 
 ## Module state
 
@@ -59,4 +59,4 @@ The runtime registry distinguishes implemented modules from modules that are onl
 
 ## Authorization and privacy
 
-All operations are limited to owner-controlled, public, legally delivered, or expressly authorized sources. No unauthorized remote access or offensive actions are implemented. Do not place passwords, API keys, OAuth tokens, CURP, RFC, or full government identifiers in source code, prompts, logs, or Git history.
+All operations are limited to owner-controlled, public, legally delivered, or expressly authorized sources. No unauthorized remote access or offensive actions are implemented. Sensitive dossier JSON is read from standard input or a private file (use chmod 600 on POSIX); it is not accepted as a command-line argument. Do not place passwords, API keys, OAuth tokens, CURP, RFC, or full government identifiers in source code, prompts, logs, or Git history.
